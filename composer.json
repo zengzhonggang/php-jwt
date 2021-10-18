@@ -1,11 +1,11 @@
 {
-    "name": "zzg/jwt",
+    "name": "zengzhonggang/jwt",
     "description": "jwt token",
     "type": "library",
     "license": "MIT",
     "authors": [
         {
-            "name": "zzg",
+            "name": "zengzhonggang",
             "email": "2466366466@qq.com"
         }
     ],
