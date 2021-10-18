@@ -1,5 +1,5 @@
 {
-    "name": "zengzhonggang/jwt",
+    "name": "zengzhonggang/php-jwt",
     "description": "jwt token",
     "type": "library",
     "license": "MIT",
