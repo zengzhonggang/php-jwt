@@ -5,7 +5,7 @@ namespace ZZG\Algorithm;
 
 
 use DomainException;
-use ZZG\Base64Url\Base64Url;
+use ZZG\Base64\UrlSafeBase64;
 use ZZG\Header\Header;
 use ZZG\JWTKey;
 use ZZG\Payload\Claim;
@@ -49,7 +49,7 @@ class Signature
      */
     public function sign($payload,$header)
     {
-        $string = Base64Url::encode($header->toArray()).Base64Url::encode($payload->toArray());
+        $string = UrlSafeBase64::encode($header->toArray()).UrlSafeBase64::encode($payload->toArray());
         list($function, $algorithm) = static::matchAlg($this->getKey()->getAlg());
         $signatureString = false;
         switch ($function) {
@@ -64,7 +64,7 @@ class Signature
                 }
                 $signatureString = $signature;
         }
-        return Base64Url::encode($signatureString);
+        return UrlSafeBase64::encode($signatureString);
     }
 
     public static function matchAlg($alg)

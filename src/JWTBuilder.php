@@ -5,7 +5,7 @@ namespace ZZG;
 
 
 use ZZG\Algorithm\Signature;
-use ZZG\Base64Url\Base64Url;
+use ZZG\Base64\UrlSafeBase64;
 use ZZG\Header\Header;
 use ZZG\Payload\Claim;
 
@@ -71,7 +71,7 @@ class JWTBuilder
         $this->header->setAlg($key->getAlg());
         $this->header->set('kid',$key->getKid());
         $sign = new Signature($key);
-        return Base64Url::encode($this->header->toArray()).'.'.Base64Url::encode($this->payload->toArray()).'.'.$sign->sign($this->payload,$this->header);
+        return UrlSafeBase64::encode($this->header->toArray()).'.'.UrlSafeBase64::encode($this->payload->toArray()).'.'.$sign->sign($this->payload,$this->header);
     }
     public function __toString()
     {

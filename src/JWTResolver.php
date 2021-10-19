@@ -6,7 +6,7 @@ namespace ZZG;
 
 use UnexpectedValueException;
 use ZZG\Algorithm\Signature;
-use ZZG\Base64Url\Base64Url;
+use ZZG\Base64\UrlSafeBase64;
 use ZZG\Exception\BeforeValidException;
 use ZZG\Exception\SignatureInvalidException;
 use ZZG\Header\Header;
@@ -100,8 +100,8 @@ class JWTResolver
         if (count($tokenArray) != 3 ) {
             throw new UnexpectedValueException('token格式错误');
         }
-        $headerArray = Base64Url::decode($tokenArray[0]);
-        $payloadArray = Base64Url::decode($tokenArray[1]);
+        $headerArray = UrlSafeBase64::decode($tokenArray[0]);
+        $payloadArray = UrlSafeBase64::decode($tokenArray[1]);
         $this->setSignatureString($tokenArray[2]);
         $this->setHeader(new Header($headerArray));
         $this->setPayload(new Claim($payloadArray));

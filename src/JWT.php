@@ -2,6 +2,7 @@
 namespace ZZG;
 
 use ZZG\Algorithm\Signature;
+use ZZG\Payload\Claim;
 
 class JWT
 {
@@ -36,11 +37,23 @@ class JWT
         }
         return self::$instance;
     }
+
+    /**
+     * token 生成器
+     * @param array | Claim $payload
+     * @return JWTBuilder
+     */
     public  function generateToken($payload)
     {
         return new JWTBuilder($payload,$this->keys);
     }
-    public  function analyticToken($token)
+
+    /**
+     * token 解析器
+     * @param string $token
+     * @return JWTResolver
+     */
+    public  function analyticToken(string $token)
     {
         return new JWTResolver($token,$this->keys);
     }

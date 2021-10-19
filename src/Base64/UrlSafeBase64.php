@@ -6,10 +6,10 @@
  * Time: 01:59
  */
 
-namespace ZZG\Base64Url;
+namespace ZZG\Base64;
 
 
-class Base64Url
+class UrlSafeBase64
 {
     public static function encode($array){
         if (is_array($array)) {
