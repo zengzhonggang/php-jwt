@@ -44,6 +44,11 @@ $jwtService = JWT::init([JWT::HS256,'123']);
 $jwtService = JWT::init([[JWT::HS256,'123'],[JWT::HS256,'456']]);
 //自定义算法unique_id,
 $jwtService = JWT::init([JWT::HS256,'123','kid']);
+
+//openssl
+$privateKey = '';
+$publicKey = '';
+$jwtService = JWT::init([JWT::RS256,[$publicKey,$privateKey]]);
 ```
 ### 生成token
 ```php
