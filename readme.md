@@ -15,7 +15,7 @@ composer require zengzhonggang/php-jwt
 ## 用例
 ### 简单用例
 ```php
-use ZZG\JWT;
+use ZZG\JWT\JWT;
 
 $jwtService = JWT::init([JWT::HS256,'123']);
 //生成
@@ -58,7 +58,7 @@ $payload = [
     'role' => 'admin'
 ];
 //使用对象
-$payload = new \ZZG\Payload\Claim();
+$payload = new \ZZG\JWT\Payload\Claim();
 $payload->setExpirationTime(time()+24*60*60);
 $payload->setPublicClaim('user','zzg');
 
@@ -82,6 +82,9 @@ try {
  }catch (Exception $exception) {
     //todo
  }
+ 
+ //在使用payload之前没有验证操作，可能会抛出TokenInvalidException异常
+ //token的生效和有效期不会验证
 $payload = $tokenResolver->getPayload();
 echo $payload->getExpirationTime();
 echo $payload->get('user');
@@ -89,14 +92,29 @@ var_export($payload->toArray());
 ```
 ### 验证处理
 ```php
-
+//验证通过 code 为 0
+switch ($tokenResolver->errorCode()) {
+    case \ZZG\JWT\Exception\TokenInvalidException::CODE:
+        //todo
+        break;
+    case \ZZG\JWT\Exception\SignatureInvalidException::CODE:
+        //todo
+        break;
+    case \ZZG\JWT\Exception\BeforeValidException::CODE:
+        //todo
+        break;
+    case \ZZG\JWT\Exception\ExpiredException::CODE:
+        //todo
+        break;
+}
+    
 try {
     $tokenResolver->verify();
- } catch (\ZZG\Exception\BeforeValidException $e) {
+ } catch (\ZZG\JWT\Exception\BeforeValidException $e) {
     //todo token还未生效
- } catch (\ZZG\Exception\ExpiredException $e) {
+ } catch (\ZZG\JWT\Exception\ExpiredException $e) {
     //todo token过期
- } catch (\ZZG\Exception\SignatureInvalidException $e) {
+ } catch (\ZZG\JWT\Exception\SignatureInvalidException $e) {
     //todo 签名验证失败
  } catch (RuntimeException $e) {
     //todo 其他异常

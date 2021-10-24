@@ -1,8 +1,8 @@
 <?php
-namespace ZZG;
+namespace ZZG\JWT;
 
-use ZZG\Algorithm\Signature;
-use ZZG\Payload\Claim;
+use ZZG\JWT\Algorithm\Signature;
+use ZZG\JWT\Payload\Claim;
 
 class JWT
 {

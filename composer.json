@@ -15,7 +15,7 @@
     },
     "autoload": {
         "psr-4": {
-            "ZZG\\": "src/"
+            "ZZG\\JWT\\": "src/"
         }
     }
 }

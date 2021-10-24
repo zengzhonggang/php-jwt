@@ -6,7 +6,7 @@
  * Time: 17:48
  */
 
-namespace ZZG\Payload;
+namespace ZZG\JWT\Payload;
 
 
 class Claim

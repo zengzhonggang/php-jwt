@@ -6,7 +6,7 @@
  * Time: 01:59
  */
 
-namespace ZZG\Base64;
+namespace ZZG\JWT\Base64;
 
 
 class UrlSafeBase64

@@ -1,14 +1,14 @@
 <?php
 
 
-namespace ZZG\Algorithm;
+namespace ZZG\JWT\Algorithm;
 
 
 use DomainException;
-use ZZG\Base64\UrlSafeBase64;
-use ZZG\Header\Header;
-use ZZG\JWTKey;
-use ZZG\Payload\Claim;
+use ZZG\JWT\Base64\UrlSafeBase64;
+use ZZG\JWT\Header\Header;
+use ZZG\JWT\JWTKey;
+use ZZG\JWT\Payload\Claim;
 
 class Signature
 {

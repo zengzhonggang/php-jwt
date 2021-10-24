@@ -6,7 +6,7 @@
  * Time: 16:40
  */
 
-namespace ZZG\Header;
+namespace ZZG\JWT\Header;
 
 
 class Header

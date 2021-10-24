@@ -1,13 +1,13 @@
 <?php
 
 
-namespace ZZG;
+namespace ZZG\JWT;
 
 
-use ZZG\Algorithm\Signature;
-use ZZG\Base64\UrlSafeBase64;
-use ZZG\Header\Header;
-use ZZG\Payload\Claim;
+use ZZG\JWT\Algorithm\Signature;
+use ZZG\JWT\Base64\UrlSafeBase64;
+use ZZG\JWT\Header\Header;
+use ZZG\JWT\Payload\Claim;
 
 class JWTBuilder
 {

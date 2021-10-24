@@ -1,7 +1,7 @@
 <?php
 
 
-namespace ZZG;
+namespace ZZG\JWT;
 
 
 class JWTKey
